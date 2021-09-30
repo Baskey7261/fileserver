@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main2.css">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/main.js"></script>
+    <script src="posts/posts.js"></script>
+</head>
+
+<body>
+    <header></header>
+    <section id="main"></section>
+    <footer></footer>
+</body>
+<script>
+    postData.map((e, i, a) => {
+        let card = document.createElement('div');
+        card.setAttribute('class', 'card');
+        document.getElementById('main').appendChild(card);
+
+        let head = document.createElement('div');
+        head.setAttribute('class', 'cardHeader');
+        head.innerHTML = '<h4>' + e.uploadTime + '</h4><p>' + e.headerText + '</p>';
+        card.appendChild(head);
+
+        let pic = document.createElement('div');
+        pic.setAttribute('class', 'cardImg');
+        pic.innerHTML = '<img src="/posts/images/mediumres/med_' + e.img + '">';
+        card.appendChild(pic);
+
+        let body = document.createElement('div');
+        body.setAttribute('class', 'cardBody');
+        body.innerHTML = '<p>' + e.bodyText + '</p>';
+        card.appendChild(body);
+    });
+</script>
+
+</html>
